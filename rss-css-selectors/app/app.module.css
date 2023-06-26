@@ -1,0 +1,13 @@
+
+
+
+chest {
+  display: flex;
+  margin: auto;
+  width: 30%;
+  height: 180px;
+  background-image: url('../assets/images/box.png');
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  }

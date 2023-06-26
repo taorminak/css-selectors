@@ -1,0 +1,86 @@
+body {
+    background-color:  #395461;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+   }
+ 
+   .col-1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-width: 75vw;
+   }
+ 
+   .col-2 {
+    min-width: 20vw;
+    height: 100%;
+   }
+ 
+   .block {
+    background-color: #449FAF;
+    padding: 10px;
+    margin: 5px;
+    box-sizing: border-box;
+    color: #010307;
+    font-family: 'East Sea Dokdo', sans-serif, cursive;
+    font-size: 1.5em;
+   }
+ 
+ 
+   .block-2, .block-3 {
+    flex-basis: 48%;
+    min-height: 50vh;
+   }
+
+   .block-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  justify-content: space-around;
+   }
+ 
+
+   .block-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-basis: 100%;
+    width: 100%;
+   height: 250px;
+    background-image: url('./assets/images/beach.jpg');
+    background-position: bottom;
+    background-size: cover;
+      background-repeat: no-repeat;
+  }
+
+  h2, p {
+    margin:0;
+  }
+
+  textarea {
+    margin: 0px;
+    font-family: 'East Sea Dokdo', sans-serif;
+    font-size: 1.2em;
+    color: #010307;
+    background-color: #B1F4FC;
+    resize: none;
+    width: 80%;
+    height: 80%;
+  }
+
+  h1 {
+    margin: 0;
+    color: #B1F4FC;
+    text-align: center;
+    font-family:  'East Sea Dokdo', sans-serif;;
+  }
+  
