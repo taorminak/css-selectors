@@ -2,6 +2,31 @@ body {
     background-color:  #395461;
 }
 
+.flag {
+    margin-left: 10px;
+    width: 50px;
+    transform: rotate(30deg);
+    transition: 0.5s;
+    position: relative;
+    top: 13px;
+}
+
+.flag-rotate {
+    margin-right: 13px;
+    width: 50px;
+    transform: rotate(-30deg);
+    transition: 0.5s;
+    position: relative;
+    top: 10px;
+}
+
+.flag:hover {
+    transform: rotate(360deg); }
+
+   .flag-rotate:hover {
+    transform: rotate(360deg); 
+   }
+
 .container {
     display: flex;
     flex-direction: row;
@@ -32,6 +57,11 @@ body {
     color: #010307;
     font-family: 'East Sea Dokdo', sans-serif, cursive;
     font-size: 1.5em;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 20px; 
+    border-bottom-right-radius: 10px; 
+    border-bottom-left-radius: 20px;
+    padding: 20px;
    }
  
  
@@ -55,7 +85,7 @@ body {
     justify-content: flex-end;
     flex-basis: 100%;
     width: 100%;
-   height: 250px;
+   height: 210px;
     background-image: url('./assets/images/beach.jpg');
     background-position: bottom;
     background-size: cover;
@@ -71,16 +101,28 @@ body {
     font-family: 'East Sea Dokdo', sans-serif;
     font-size: 1.2em;
     color: #010307;
-    background-color: #B1F4FC;
+    background-color: #b8e8fc;
     resize: none;
     width: 80%;
     height: 80%;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 20px; 
+    border-bottom-right-radius: 10px; 
+    border-bottom-left-radius: 20px;
+    padding: 20px;
   }
 
   h1 {
     margin: 0;
-    color: #B1F4FC;
+    color: #b8e8fc;
     text-align: center;
-    font-family:  'East Sea Dokdo', sans-serif;;
+    font-family:  'East Sea Dokdo', sans-serif;
+    font-size: 2.8em;
+    transition: color 0.5s ease-in-out;
+
+  }
+
+  h1:hover {
+    color: #B1F4FC;
   }
   
