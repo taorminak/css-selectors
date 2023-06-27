@@ -1,4 +1,4 @@
-import './layout.scss';
+import './layout.css';
 import {
   Container, Chest, TreasureMap, Treasure, Telescope,
 } from '../../types/index';

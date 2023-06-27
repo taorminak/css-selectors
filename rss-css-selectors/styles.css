@@ -1,128 +1,185 @@
 body {
-    background-color:  #395461;
+  background-color: #395461;
 }
 
 .flag {
-    margin-left: 10px;
-    width: 50px;
-    transform: rotate(30deg);
-    transition: 0.5s;
-    position: relative;
-    top: 13px;
+  margin-left: 10px;
+  width: 50px;
+  transform: rotate(30deg);
+  transition: 0.5s;
+  position: relative;
+  top: 13px;
 }
 
 .flag-rotate {
-    margin-right: 13px;
-    width: 50px;
-    transform: rotate(-30deg);
-    transition: 0.5s;
-    position: relative;
-    top: 10px;
+  margin-right: 13px;
+  width: 50px;
+  transform: rotate(-30deg);
+  transition: 0.5s;
+  position: relative;
+  top: 10px;
 }
 
 .flag:hover {
-    transform: rotate(360deg); }
+  transform: rotate(360deg);
+}
 
-   .flag-rotate:hover {
-    transform: rotate(360deg); 
-   }
+.flag-rotate:hover {
+  transform: rotate(360deg);
+}
 
 .container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-   }
- 
-   .col-1 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    min-width: 75vw;
-   }
- 
-   .col-2 {
-    min-width: 20vw;
-    height: 100%;
-   }
- 
-   .block {
-    background-color: #449FAF;
-    padding: 10px;
-    margin: 5px;
-    box-sizing: border-box;
-    color: #010307;
-    font-family: 'East Sea Dokdo', sans-serif, cursive;
-    font-size: 1.5em;
-    border-top-left-radius: 10px; 
-    border-top-right-radius: 20px; 
-    border-bottom-right-radius: 10px; 
-    border-bottom-left-radius: 20px;
-    padding: 20px;
-   }
- 
- 
-   .block-2, .block-3 {
-    flex-basis: 48%;
-    min-height: 50vh;
-   }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
-   .block-2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.col-1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-width: 75vw;
+}
+
+.col-2 {
+  min-width: 20vw;
+  height: 100%;
+}
+
+.block {
+  background-color: #449faf;
+  margin: 6px;
+  box-sizing: border-box;
+  color: #010307;
+  font-family: "East Sea Dokdo", sans-serif, cursive;
+  font-size: 1.5rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 20px;
+  padding: 20px;
+}
+
+.block-2,
+.block-3 {
+  flex-basis: 48%;
+  min-height: 50vh;
+}
+
+.block-2, .block-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
-   }
+}
+
+.block-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-basis: 100%;
+  width: 100%;
+  height: 210px;
+  background-image: url("./assets/images/beach.jpg");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+input {
+  margin: 0px;
+  font-family: "East Sea Dokdo", sans-serif;
+  font-size: 1.5rem;
+  color: #010307;
+  background-color: #b8e8fc;
+  resize: none;
+  width: 75%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 20px;
+  border: none;
+  padding: 20px;
+  outline: none;
+}
+
+h1 {
+  margin: 0;
+  color: #b8e8fc;
+  text-align: center;
+  font-family: "East Sea Dokdo", sans-serif;
+  font-size: 2.9em;
+  transition: color 0.5s ease-in-out;
+}
+
+h1:hover {
+  color: #b1f4fc;
+}
+
+.editor-window, .html-viewer {
+  font-size: 14px;
+  line-height: 150%;
+  background-color: #b8e8fc;
+  margin: 0px;
+  width: 100%;
+  min-height: 80%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 20px;
+}
+
+.button-send {
+  display: inline-block;
+  padding: 5px 12px;
+  background-color: #395461;
+  color: #b8e8fc;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: "East Sea Dokdo", sans-serif, cursive;
+  font-size: 1.5rem;
+}
+
+.button-send:hover {
+  background-color: #F4D499;
+  color: #010307;
+}
+
+.button-send:focus {
+  outline: none;
+}
+
+.button-send:active {
+  background-color: #bbb;
+}
+
+.choose-level, .styles {
+  margin: 0;
+  padding-left: 20px;
+  font-family: "East Sea Dokdo", sans-serif;
+  font-size: 1.5rem;
+  color: #808080;
+  background-color: #b8e8fc;
  
+  width: 75%;
+ 
+}
 
-   .block-1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex-basis: 100%;
-    width: 100%;
-   height: 210px;
-    background-image: url('./assets/images/beach.jpg');
-    background-position: bottom;
-    background-size: cover;
-      background-repeat: no-repeat;
-  }
 
-  h2, p {
-    margin:0;
-  }
 
-  textarea {
-    margin: 0px;
-    font-family: 'East Sea Dokdo', sans-serif;
-    font-size: 1.2em;
-    color: #010307;
-    background-color: #b8e8fc;
-    resize: none;
-    width: 80%;
-    height: 80%;
-    border-top-left-radius: 10px; 
-    border-top-right-radius: 20px; 
-    border-bottom-right-radius: 10px; 
-    border-bottom-left-radius: 20px;
-    padding: 20px;
-  }
 
-  h1 {
-    margin: 0;
-    color: #b8e8fc;
-    text-align: center;
-    font-family:  'East Sea Dokdo', sans-serif;
-    font-size: 2.8em;
-    transition: color 0.5s ease-in-out;
 
-  }
 
-  h1:hover {
-    color: #B1F4FC;
-  }
-  

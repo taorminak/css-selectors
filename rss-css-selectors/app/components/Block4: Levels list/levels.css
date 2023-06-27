@@ -1,0 +1,21 @@
+.rules {
+    font-family: "East Sea Dokdo", sans-serif;
+  font-size: 1.5rem;
+}
+
+.levels {
+    font-size: 14px;
+  line-height: 150%;
+  background-color: #b8e8fc;
+  margin: 0px;
+  width: 100%;
+  min-height: 70vh;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 20px;
+}
+
+.block-4 {
+    min-height: 80vh;
+}
