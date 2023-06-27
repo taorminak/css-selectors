@@ -179,6 +179,41 @@ h1:hover {
 }
 
 
+li img {
+  width: 70px;
+  height: auto;
+  background-color:  #395461;
+}
+
+footer nav ul {
+  display: flex;
+ 
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  margin: auto;
+  padding-inline-start: 0;
+  justify-content: flex-end;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+footer nav ul li {
+  margin-right: 20px;
+  font-size: 14px;
+}
+
+footer nav ul li a {
+  color: #010307;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer nav ul li a:hover {
+  color: #b8e8fc;
+  text-decoration: none;
+}
+
 
 
 
