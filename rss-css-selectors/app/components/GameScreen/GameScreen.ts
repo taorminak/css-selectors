@@ -1,14 +1,14 @@
-import './app.module.css';
+import "./game-screen.css";
 import {
   createContainer, createChest, createMap, createTreasure, createTelescope, createCoins, createKey, createHat,
-} from './components/Block1: Task layout/layout';
+} from '../Block1: Task layout/layout';
 import {
   Container, Chest, TreasureMap, Treasure, Telescope, Coins, Key, Hat,
-} from './types/index';
-import Input from './components/Block2: Input window/input';
-import Markup from './components/Block3: Code block/code';
-import LevelsList from './components/Block4: Levels list/levelsList';
-import Level, { levels } from './models/LevelModel';
+} from '../../types/index';
+import Input from '../Block2: Input window/input';
+import Markup from '../Block3: Code block/code';
+import LevelsList from '../Block4: Levels list/levelsList';
+import Level, { levels } from '../../models/LevelModel';
 
 const block1: Container = createContainer();
 const chest: Chest = createChest();
@@ -72,18 +72,16 @@ cssView.appendChild(buttonSend);
 cssView.appendChild(styles);
 cssView.appendChild(chooseLevel);
 
-const block3 = document.getElementById('block3');
-const htmlViewer = document.createElement('div');
+
+export const htmlViewer = document.createElement('div');
 
 htmlViewer.classList.add('html-viewer');
-
-block3?.appendChild(htmlViewer);
 
 const level1 = levels[0];
 const markup = new Markup();
 
 markup.generate(level1);
 
-const levelsList = new LevelsList('block4', 'Select elements by their type');
+export const levelsList = new LevelsList('block4', 'Select elements by their type');
 
 levelsList.createRulesWindow();

@@ -1,49 +1,38 @@
 
 chest {
-  display: flex;
-  margin: auto;
-  width: 30%;
-  height: 180px;
-  background-image: url('../assets/images/box.png');
-  background-position: bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-  }
-
-  treasure {
     display: flex;
     margin: auto;
     width: 30%;
     height: 180px;
-    background-image: url('../assets/images/treasure-5.png');
+    background-image: url('../assets/images/box.png');
     background-position: bottom;
     background-size: contain;
     background-repeat: no-repeat;
     }
-
-    map {
+  
+    treasure {
       display: flex;
       margin: auto;
       width: 30%;
       height: 180px;
-      background-image: url('../assets/images/map.png');
+      background-image: url('../assets/images/treasure-5.png');
       background-position: bottom;
       background-size: contain;
       background-repeat: no-repeat;
       }
-
-      telescope {
+  
+      map {
         display: flex;
         margin: auto;
         width: 30%;
         height: 180px;
-        background-image: url('../assets/images/spyglass.png');
+        background-image: url('../assets/images/map.png');
         background-position: bottom;
         background-size: contain;
         background-repeat: no-repeat;
         }
-
-        coins {
+  
+        telescope {
           display: flex;
           margin: auto;
           width: 30%;
@@ -53,7 +42,14 @@ chest {
           background-size: contain;
           background-repeat: no-repeat;
           }
-
-
-
- 
+  
+          coins {
+            display: flex;
+            margin: auto;
+            width: 30%;
+            height: 180px;
+            background-image: url('../assets/images/spyglass.png');
+            background-position: bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+            }

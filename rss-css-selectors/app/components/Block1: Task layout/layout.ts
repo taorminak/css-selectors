@@ -1,6 +1,6 @@
 import './layout.css';
 import {
-  Container, Chest, TreasureMap, Treasure, Telescope,
+  Container, Chest, TreasureMap, Treasure, Telescope, Coins, Key, Hat,
 } from '../../types/index';
 
 export function createContainer(): Container {
@@ -41,4 +41,28 @@ export function createTelescope(): Telescope {
   };
 
   return telescope;
+}
+
+export function createCoins(): Coins {
+  const coins: Coins = {
+    element: document.createElement('coins'),
+  };
+
+  return coins;
+}
+
+export function createKey(): Key {
+  const key: Key = {
+    element: document.createElement('key'),
+  };
+
+  return key;
+}
+
+export function createHat(): Hat {
+  const hat: Hat = {
+    element: document.createElement('hat'),
+  };
+
+  return hat;
 }

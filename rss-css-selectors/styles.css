@@ -127,7 +127,7 @@ h1:hover {
 }
 
 .editor-window, .html-viewer {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 150%;
   background-color: #b8e8fc;
   margin: 0px;
@@ -137,6 +137,10 @@ h1:hover {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 20px;
+}
+
+.html-viewer > * {
+  font-size: 28px;
 }
 
 .button-send {

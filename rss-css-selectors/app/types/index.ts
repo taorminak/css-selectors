@@ -17,3 +17,15 @@ export interface Treasure {
 export interface Telescope {
   element: HTMLElement;
 }
+
+export interface Coins {
+  element: HTMLElement;
+}
+
+export interface Key {
+  element: HTMLElement;
+}
+
+export interface Hat {
+  element: HTMLElement;
+}

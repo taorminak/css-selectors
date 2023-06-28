@@ -1,4 +1,5 @@
 import './code.css';
+import Level from '../../models/LevelModel';
 
 export default class Markup {
   private createNode(tag: string, className?: string, id?: string): HTMLElement {
@@ -15,25 +16,11 @@ export default class Markup {
     return node;
   }
 
-  public generate():void {
+  public generate(level: Level): void {
     const htmlViewer = document.querySelector('.html-viewer');
     const island = this.createNode('div');
 
-    island.textContent = '<div class="island">';
-
-    island.classList.add('island');
-
-    const chest = this.createNode('div');
-
-    chest.classList.add('chest');
-
-    chest.textContent = '<chest class="chest"></chest>';
-    island.appendChild(chest);
-
-    const island2 = this.createNode('div');
-
-    island2.textContent = '</div>';
-    island.appendChild(island2);
+    island.innerHTML = level.htmlCode;
 
     htmlViewer?.appendChild(island);
   }
