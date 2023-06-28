@@ -1,7 +1,7 @@
 
+
 chest {
-  display: flex;
-  margin: auto;
+  display: block;
   width: 30%;
   height: 180px;
   background-image: url('../assets/images/box.png');

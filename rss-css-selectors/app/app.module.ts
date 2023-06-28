@@ -1,43 +1,17 @@
 import './app.module.css';
+import createLayout from './components/Block1: Task layout/layout';
 import {
-  createContainer, createChest, createMap, createTreasure, createTelescope, createCoins, createKey, createHat,
-} from './components/Block1: Task layout/layout';
-import {
-  Container, Chest, TreasureMap, Treasure, Telescope, Coins, Key, Hat,
+  Layout,
 } from './types/index';
 import Input from './components/Block2: Input window/input';
 import Markup from './components/Block3: Code block/code';
 import LevelsList from './components/Block4: Levels list/levelsList';
-import Level, { levels } from './models/LevelModel';
+import { levels } from './models/LevelModel';
 
-const block1: Container = createContainer();
-const chest: Chest = createChest();
+const level1 = levels[0];
+const block1: Layout = createLayout(level1.layout);
 
-block1.element.appendChild(chest.element);
-
-const map: TreasureMap = createMap();
-
-// block1.element.appendChild(map.element);
-
-const treasure: Treasure = createTreasure();
-
-// block1.element.appendChild(treasure.element);
-
-const telescope: Telescope = createTelescope();
-
-// block1.element.appendChild(telescope.element);
-
-const coins: Coins = createCoins();
-
-// block1.element.appendChild(coins.element);
-
-const key: Key = createKey();
-
-// block1.element.appendChild(key.element);
-
-const hat: Hat = createHat();
-
-const appContainer: Container = block1;
+const appContainer: Layout = block1;
 export default appContainer;
 
 const userInput = new Input();
@@ -57,6 +31,30 @@ const buttonSend = document.createElement('div');
 
 buttonSend.classList.add('button-send');
 buttonSend.textContent = 'send';
+
+let currentLevelIndex = 0;
+
+function handleButtonClick(): void {
+  const selector = userInput.getCode();
+
+  const level = levels[currentLevelIndex];
+
+  if (level.correctSelector === selector) {
+    if (currentLevelIndex < levels.length - 1) {
+      currentLevelIndex = +1;
+
+      const nextLevel = levels[currentLevelIndex];
+
+      console.log(nextLevel);
+    } else {
+      console.log('Congratulations! You have completed all levels.');
+    }
+  } else {
+    console.error('Invalid selector');
+  }
+}
+
+buttonSend.addEventListener('click', handleButtonClick);
 
 const styles = document.createElement('div');
 
@@ -79,11 +77,10 @@ htmlViewer.classList.add('html-viewer');
 
 block3?.appendChild(htmlViewer);
 
-const level1 = levels[0];
 const markup = new Markup();
 
 markup.generate(level1);
 
-const levelsList = new LevelsList('block4', 'Select elements by their type');
+export const levelsList = new LevelsList('block4', 'Select elements by their type', 'Type Selector. Selects all elements of type A. Type refers to the type of tag, so div, p and ul are all different element types.');
 
-levelsList.createRulesWindow();
+levelsList.createRulesWindow(level1);

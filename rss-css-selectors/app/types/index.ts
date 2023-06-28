@@ -1,4 +1,4 @@
-export interface Container {
+export interface Layout {
   element: HTMLElement;
 }
 
