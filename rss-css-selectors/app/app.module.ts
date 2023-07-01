@@ -114,13 +114,23 @@ function handleButtonClick(): void {
 
       updateBlocks(nextLevel);
       userInput.input.value = '';
+
+      block1.element.classList.add('correct-animation');
     } else {
       victoryMessage.style.display = 'block';
     }
   } else {
     console.error('Invalid selector');
+    block1.element.classList.add('incorrect-animation');
   }
 }
 cssView.appendChild(victoryMessage);
 
+function handleKeyPress(event: KeyboardEvent): void {
+  if (event.key === 'Enter') {
+    handleButtonClick();
+  }
+}
+
 buttonSend.addEventListener('click', handleButtonClick);
+document.addEventListener('keypress', handleKeyPress);

@@ -250,6 +250,41 @@ footer nav ul li a:hover {
     margin: 20px;
   }
 
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .incorrect-animation {
+    animation: shake 0.5s;
+  }
+  
+  @keyframes flyAway {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100vh);
+    }
+  }
+  
+  .correct-animation {
+    animation: flyAway 1s forwards;
+  }
+
 
 
 

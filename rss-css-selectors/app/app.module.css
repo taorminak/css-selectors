@@ -8,9 +8,6 @@ chest {
   background-repeat: no-repeat;
 }
 
-
-
-
 treasure {
   display: block;
   margin: auto;
@@ -78,5 +75,7 @@ hat {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+
 
 
