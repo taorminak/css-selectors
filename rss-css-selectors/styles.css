@@ -196,7 +196,6 @@ li img {
 
 footer nav ul {
   display: flex;
- 
   flex-direction: row;
   align-items: center;
   list-style: none;
@@ -225,8 +224,30 @@ footer nav ul li a:hover {
 
 .island {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 70%;
+  justify-content: space-around;
+  align-items:center;
+  margin: auto;
+  }
+
+  #open {
+    background-image: url("./assets/images/treasure-4.png");
+  }
+
+  key.small {
+    width: 20% !important;
+    height:70px !important;
+  }
+
+  telescope.small {
+    width: 20% !important;
+    height:70px !important;
+  }
+
+  .victory {
+    font-size: 36px;
+    color: #86414a;
+    margin: 20px;
   }
 
 

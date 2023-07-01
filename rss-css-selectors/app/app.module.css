@@ -1,59 +1,82 @@
-
-
 chest {
   display: block;
   width: 30%;
-  height: 180px;
-  background-image: url('../assets/images/box.png');
+  height: 170px;
+  background-image: url("../assets/images/box.png");
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
-  }
-
-  treasure {
-    display: flex;
-    margin: auto;
-    width: 30%;
-    height: 180px;
-    background-image: url('../assets/images/treasure-5.png');
-    background-position: bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
-    }
-
-    map {
-      display: flex;
-      margin: auto;
-      width: 30%;
-      height: 180px;
-      background-image: url('../assets/images/map.png');
-      background-position: bottom;
-      background-size: contain;
-      background-repeat: no-repeat;
-      }
-
-      telescope {
-        display: flex;
-        margin: auto;
-        width: 30%;
-        height: 180px;
-        background-image: url('../assets/images/spyglass.png');
-        background-position: bottom;
-        background-size: contain;
-        background-repeat: no-repeat;
-        }
-
-        coins {
-          display: flex;
-          margin: auto;
-          width: 30%;
-          height: 180px;
-          background-image: url('../assets/images/spyglass.png');
-          background-position: bottom;
-          background-size: contain;
-          background-repeat: no-repeat;
-          }
+}
 
 
 
- 
+
+treasure {
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: 150px;
+  background-image: url("../assets/images/treasure-2.png");
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+map {
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: 120px;
+  background-image: url("../assets/images/map.png");
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+telescope {
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: 115px;
+  background-image: url("../assets/images/spyglass.png");
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  rotate: 115deg;
+}
+
+coins {
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: 80px;
+  background-image: url("../assets/images/coin.png");
+  background-position:bottom;
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+key {
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: 100px;
+  background-image: url("../assets/images/key.png");
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  rotate: 25deg;
+}
+
+hat {
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: 150px;
+  background-image: url("../assets/images/pirate-hat.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
