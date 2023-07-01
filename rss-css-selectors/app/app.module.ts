@@ -6,7 +6,10 @@ import {
 import Input from './components/Block2: Input window/input';
 import Markup from './components/Block3: Code block/code';
 import LevelsList from './components/Block4: Levels list/levelsList';
-import Level, { levels } from './models/LevelModel';
+import Level, { levels } from '../models/LevelModel';
+import fromLocalStorage from '../levelsService/levelsService';
+
+fromLocalStorage();
 
 const level1 = levels[0];
 const block1: Layout = createLayout(level1.layout);
@@ -21,18 +24,16 @@ const userInput = new Input();
 userInput.input.setAttribute('placeholder', 'Type a CSS selector here');
 userInput.input.setAttribute('type', 'text');
 
-console.log(userInput);
-
 const cssView = document.createElement('div');
 
 cssView.classList.add('editor-window');
 block2?.appendChild(cssView);
 cssView.appendChild(userInput.input);
 
-const buttonSend = document.createElement('div');
+const buttonEnter = document.createElement('div');
 
-buttonSend.classList.add('button-send');
-buttonSend.textContent = 'send';
+buttonEnter.classList.add('button-enter');
+buttonEnter.textContent = 'Enter';
 
 let currentLevelIndex = 0;
 
@@ -46,7 +47,7 @@ const chooseLevel = document.createElement('div');
 chooseLevel.classList.add('choose-level');
 chooseLevel.textContent = ' /* Type a number to skip to a level */ ';
 
-cssView.appendChild(buttonSend);
+cssView.appendChild(buttonEnter);
 cssView.appendChild(styles);
 cssView.appendChild(chooseLevel);
 
@@ -65,9 +66,7 @@ export const levelsList = new LevelsList('block4', 'Select elements by their typ
 
 levelsList.createRulesWindow(level1);
 
-function updateBlock1(level: Level):void {
-  console.log(level.layout);
-
+export function updateBlock1(level: Level):void {
   const newBlock1: Layout = createLayout(level.layout);
 
   if (block1) {
@@ -75,7 +74,7 @@ function updateBlock1(level: Level):void {
   }
 }
 
-function updateBlock3(level: Level): void {
+export function updateBlock3(level: Level): void {
   htmlViewer.innerHTML = '';
   markup.generate(level);
 }
@@ -89,7 +88,7 @@ function updateBlock4(level: Level): void {
   levelsList.createRulesWindow(level);
 }
 
-function updateBlocks(level: Level): void {
+export function updateBlocks(level: Level): void {
   updateBlock1(level);
   updateBlock3(level);
   updateBlock4(level);
@@ -100,6 +99,11 @@ const victoryMessage = document.createElement('div');
 victoryMessage.textContent = 'Congratulations! You have completed all levels.';
 victoryMessage.style.display = 'none';
 victoryMessage.classList.add('victory');
+
+function updateCurrentLevelIndex(index: number): void {
+  localStorage.setItem('currentLevelIndex', index.toString());
+  localStorage.setItem('levelsData', JSON.stringify(levels));
+}
 
 function handleButtonClick(): void {
   const selector = userInput.getCode();
@@ -112,16 +116,26 @@ function handleButtonClick(): void {
 
       const nextLevel = levels[currentLevelIndex];
 
-      updateBlocks(nextLevel);
       userInput.input.value = '';
 
       block1.element.classList.add('correct-animation');
+      level.completed = true;
+      updateCurrentLevelIndex(currentLevelIndex);
+      setTimeout(() => {
+        updateBlocks(nextLevel);
+        block1.element.classList.remove('correct-animation');
+      }, 500);
     } else {
       victoryMessage.style.display = 'block';
+      userInput.input.value = '';
     }
   } else {
     console.error('Invalid selector');
     block1.element.classList.add('incorrect-animation');
+    userInput.input.value = '';
+    setTimeout(() => {
+      block1.element.classList.remove('incorrect-animation');
+    }, 500);
   }
 }
 cssView.appendChild(victoryMessage);
@@ -132,5 +146,5 @@ function handleKeyPress(event: KeyboardEvent): void {
   }
 }
 
-buttonSend.addEventListener('click', handleButtonClick);
+buttonEnter.addEventListener('click', handleButtonClick);
 document.addEventListener('keypress', handleKeyPress);

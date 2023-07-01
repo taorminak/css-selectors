@@ -148,7 +148,7 @@ h1:hover {
   font-size: 28px;
 }
 
-.button-send {
+.button-enter {
   display: inline-block;
   padding: 5px 12px;
   background-color: #395461;
@@ -162,16 +162,16 @@ h1:hover {
   font-size: 1.5rem;
 }
 
-.button-send:hover {
+.button-enter:hover {
   background-color: #F4D499;
   color: #010307;
 }
 
-.button-send:focus {
+.button-enter:focus {
   outline: none;
 }
 
-.button-send:active {
+.button-enter:active {
   background-color: #bbb;
 }
 

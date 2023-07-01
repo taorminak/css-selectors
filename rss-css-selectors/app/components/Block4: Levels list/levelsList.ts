@@ -1,5 +1,6 @@
 import './levels.css';
-import Level, { levels as levelsData } from '../../models/LevelModel';
+import Level, { levels as levelsData } from '../../../models/LevelModel';
+import { updateBlock1, updateBlock3 } from '../../app.module';
 
 export default class LevelsList {
   private blockId: string;
@@ -35,6 +36,7 @@ export default class LevelsList {
     const levelInfo = document.createElement('div');
 
     levelInfo.classList.add('levels');
+
     block4.appendChild(levelInfo);
 
     const rules = document.createElement('div');
@@ -43,5 +45,43 @@ export default class LevelsList {
     rules.textContent = level.levelsDescription;
 
     levelInfo.appendChild(rules);
+
+    const levelsContainer = document.createElement('div');
+
+    levelsContainer.classList.add('levels-container');
+
+    if (h2) h2.appendChild(levelsContainer);
+
+    levelsData.forEach((levelData, index) => {
+      const levelElement = document.createElement('div');
+
+      levelElement.classList.add('level');
+      levelElement.textContent = `${index + 1}`;
+
+      if (levelData.completed) {
+        levelElement.classList.add('completed');
+      }
+
+      if (levelData.hintUsed) {
+        levelElement.classList.add('hint-used');
+      }
+
+      if (levelData === level) {
+        levelElement.classList.add('current-level');
+      }
+
+      levelElement.addEventListener('click', () => {
+        const selectedLevel = levelsData[index];
+
+        if (rules) {
+          rules.remove();
+        }
+        this.createRulesWindow(selectedLevel);
+        updateBlock1(selectedLevel);
+        updateBlock3(selectedLevel);
+      });
+
+      levelsContainer.appendChild(levelElement);
+    });
   }
 }

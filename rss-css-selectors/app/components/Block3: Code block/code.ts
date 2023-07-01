@@ -1,5 +1,5 @@
 import './code.css';
-import Level from '../../models/LevelModel';
+import Level from '../../../models/LevelModel';
 
 export default class Markup {
   private createNode(tag: string, className?: string, id?: string): HTMLElement {

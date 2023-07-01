@@ -20,3 +20,35 @@
 .block-4 {
     height: 100%;
 }
+
+.levels-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  font-size: 20px;
+}
+
+.level {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.level.completed {
+  background-color: green;
+  color: white;
+}
+
+.level.hint-used {
+  background-color: yellow;
+}
+
+.level.current-level {
+  background-color: blue;
+  color: white;
+}
