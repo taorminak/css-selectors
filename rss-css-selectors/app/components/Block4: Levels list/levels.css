@@ -2,7 +2,7 @@
     font-family: "East Sea Dokdo", sans-serif;
   font-size: 1.5rem;
   padding: 10px;
-  min-height: 75vh;
+  min-height: 50vh;
 }
 
 .levels {
@@ -19,10 +19,15 @@
 
 .block-4 {
     height: 100%;
+    display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
 }
 
 .levels-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 10px;
   font-size: 20px;

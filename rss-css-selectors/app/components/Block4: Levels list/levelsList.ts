@@ -1,6 +1,7 @@
 import './levels.css';
 import Level, { levels as levelsData } from '../../../models/LevelModel';
 import { updateBlock1, updateBlock3 } from '../../app.module';
+import { resetButton, handleResetButtonClick } from '../resetButton/reset';
 
 export default class LevelsList {
   private blockId: string;
@@ -38,6 +39,9 @@ export default class LevelsList {
     levelInfo.classList.add('levels');
 
     block4.appendChild(levelInfo);
+    block4.appendChild(resetButton);
+
+resetButton.addEventListener('click', handleResetButtonClick);
 
     const rules = document.createElement('div');
 
@@ -77,8 +81,9 @@ export default class LevelsList {
           rules.remove();
         }
         this.createRulesWindow(selectedLevel);
-        updateBlock1(selectedLevel);
-        updateBlock3(selectedLevel);
+        updateBlock1(selectedLevel, index);
+        console.log(index);
+        updateBlock3(selectedLevel, index);
       });
 
       levelsContainer.appendChild(levelElement);

@@ -12,7 +12,7 @@ export default function fromLocalStorage(): void {
 
       const currentLevel = levels[currentLevelIndex];
 
-      updateBlocks(currentLevel);
+      updateBlocks(currentLevel, currentLevelIndex);
     }
 
     const storedLevelsData = localStorage.getItem('levelsData');
@@ -20,18 +20,19 @@ export default function fromLocalStorage(): void {
     if (storedLevelsData !== null) {
       const parsedLevelsData: Level[] = JSON.parse(storedLevelsData);
 
-      parsedLevelsData.forEach((levelData: Level, index: number): void => {
-        levels[index].completed = levelData.completed;
-        levels[index].hintUsed = levelData.hintUsed;
+      parsedLevelsData.forEach((level: Level, index: number): void => {
+        console.log(parsedLevelsData);
 
         const levelElement = document.querySelector(`.level:nth-child(${index + 1})`);
 
+        console.log(levelElement);
+
         if (levelElement) {
-          if (levelData.completed) {
+          if (level.completed) {
             levelElement.classList.add('completed');
           }
 
-          if (levelData.hintUsed) {
+          if (level.hintUsed) {
             levelElement.classList.add('hint-used');
           }
         }

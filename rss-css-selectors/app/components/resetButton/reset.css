@@ -1,0 +1,14 @@
+.reset-button {
+    display: inline-block;
+    padding: 5px 12px;
+    background-color: #395461;
+    color: #b8e8fc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-family: "East Sea Dokdo", sans-serif, cursive;
+    font-size: 1.5rem;
+    text-align: center;
+}
