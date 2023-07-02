@@ -35,7 +35,19 @@ const buttonEnter = document.createElement('div');
 buttonEnter.classList.add('button-enter');
 buttonEnter.textContent = 'Enter';
 
-let currentLevelIndex = 0;
+let currentLevelIndex: number;
+
+function getCurrentLevelIndex(): number {
+  const storedCurrentLevelIndex = localStorage.getItem('currentLevelIndex');
+
+  if (storedCurrentLevelIndex) {
+    currentLevelIndex = parseInt(storedCurrentLevelIndex, 10);
+  } else {
+    currentLevelIndex = 0;
+  }
+
+  return currentLevelIndex;
+}
 
 const styles = document.createElement('div');
 
@@ -66,32 +78,38 @@ export const levelsList = new LevelsList('block4', 'Select elements by their typ
 
 levelsList.createRulesWindow(level1);
 
-export function updateBlock1(level: Level):void {
+export function updateBlock1(level: Level, index: number):void {
   const newBlock1: Layout = createLayout(level.layout);
 
   if (block1) {
     block1.element.innerHTML = newBlock1.element.innerHTML || '';
   }
+  level.correctSelector = levels[index].correctSelector;
+  console.log(index);
+  updateCurrentLevelIndex(index);
 }
 
-export function updateBlock3(level: Level): void {
+export function updateBlock3(level: Level, index: number): void {
   htmlViewer.innerHTML = '';
   markup.generate(level);
+  level.correctSelector = levels[index].correctSelector;
 }
 
-function updateBlock4(level: Level): void {
+function updateBlock4(level: Level, index: number): void {
   const rules = document.getElementsByClassName('levels')[0] as HTMLElement;
 
   if (rules) {
     rules.remove();
   }
   levelsList.createRulesWindow(level);
+  level.correctSelector = levels[index].correctSelector;
 }
 
-export function updateBlocks(level: Level): void {
-  updateBlock1(level);
-  updateBlock3(level);
-  updateBlock4(level);
+export function updateBlocks(level: Level, index: number): void {
+  updateCurrentLevelIndex(index);
+  updateBlock1(level, index);
+  updateBlock3(level, index);
+  updateBlock4(level, index);
 }
 
 const victoryMessage = document.createElement('div');
@@ -102,11 +120,16 @@ victoryMessage.classList.add('victory');
 
 function updateCurrentLevelIndex(index: number): void {
   localStorage.setItem('currentLevelIndex', index.toString());
+}
+
+export function updateStoredLevelData(): void {
   localStorage.setItem('levelsData', JSON.stringify(levels));
 }
 
-function handleButtonClick(): void {
+export function handleButtonClick(): void {
   const selector = userInput.getCode();
+
+  getCurrentLevelIndex();
 
   const level = levels[currentLevelIndex];
 
@@ -121,12 +144,20 @@ function handleButtonClick(): void {
       block1.element.classList.add('correct-animation');
       level.completed = true;
       updateCurrentLevelIndex(currentLevelIndex);
+      updateStoredLevelData();
+
+      updateBlocks(nextLevel, currentLevelIndex);
+
       setTimeout(() => {
-        updateBlocks(nextLevel);
         block1.element.classList.remove('correct-animation');
       }, 500);
-    } else {
+    } else if (currentLevelIndex === levels.length - 1) {
+      userInput.input.value = '';
+      block1.element.classList.add('correct-animation');
+      console.log(level);
+      level.completed = true;
       victoryMessage.style.display = 'block';
+      console.log('cc');
       userInput.input.value = '';
     }
   } else {
@@ -138,6 +169,7 @@ function handleButtonClick(): void {
     }, 500);
   }
 }
+
 cssView.appendChild(victoryMessage);
 
 function handleKeyPress(event: KeyboardEvent): void {
