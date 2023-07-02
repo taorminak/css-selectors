@@ -1,8 +1,8 @@
-.reset-button {
-    display: inline-block;
+.help-button {
+    display: block;
     padding: 5px 12px;
-    background-color: #395461;
-    color: #b8e8fc;
+    background-color:#b8e8fc;
+    color: #010307;
     border-radius: 4px;
     cursor: pointer;
     text-align: center;
@@ -11,10 +11,13 @@
     font-family: "East Sea Dokdo", sans-serif, cursive;
     font-size: 1.5rem;
     text-align: center;
-    margin: 10px;
+    margin: 3px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.reset-button:hover {
+.help-button:hover {
     background-color: #F4D499;
     color: #010307;
-  }
+}
+

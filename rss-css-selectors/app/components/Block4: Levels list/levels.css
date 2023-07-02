@@ -2,7 +2,7 @@
     font-family: "East Sea Dokdo", sans-serif;
   font-size: 1.5rem;
   padding: 10px;
-  min-height: 50vh;
+  min-height: 40vh;
 }
 
 .levels {
@@ -45,15 +45,14 @@
 }
 
 .level.completed {
-  background-color: green;
-  color: white;
+  background-color: #F4D499;
 }
 
 .level.hint-used {
-  background-color: yellow;
+  background-color: #86414a;
 }
 
 .level.current-level {
-  background-color: blue;
-  color: white;
+  background-color: #395461;
+  color: #b8e8fc;
 }

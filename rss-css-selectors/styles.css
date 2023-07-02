@@ -99,7 +99,9 @@ body {
 h2,
 p {
   margin: 0;
+  padding: 0;
   text-align: center;
+  line-height: 15%;
 }
 
 input {
@@ -133,6 +135,10 @@ h1:hover {
 }
 
 .editor-window, .html-viewer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   font-size: 18px;
   line-height: 150%;
   background-color: #b8e8fc;
@@ -151,6 +157,7 @@ h1:hover {
 
 .button-enter {
   display: inline-block;
+  width: 50px;
   padding: 5px 12px;
   background-color: #395461;
   color: #b8e8fc;
@@ -168,12 +175,8 @@ h1:hover {
   color: #010307;
 }
 
-.button-enter:focus {
-  outline: none;
-}
-
 .button-enter:active {
-  background-color: #bbb;
+  background-color: #86414a;
 }
 
 .choose-level, .styles {
@@ -183,7 +186,6 @@ h1:hover {
   font-size: 1.5rem;
   color: #808080;
   background-color: #b8e8fc;
- 
   width: 75%;
  
 }
@@ -226,6 +228,7 @@ footer nav ul li a:hover {
 .island {
   display: flex;
   width: 70%;
+  height: 170px;
   justify-content: space-around;
   align-items:center;
   margin: auto;

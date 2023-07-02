@@ -1,7 +1,8 @@
 import './levels.css';
 import Level, { levels as levelsData } from '../../../models/LevelModel';
-import { updateBlock1, updateBlock3 } from '../../app.module';
+import { updateBlock1, updateBlock3, updateBlock4 } from '../../app.module';
 import { resetButton, handleResetButtonClick } from '../resetButton/reset';
+import fromLocalStorage from '../../../levelsService/levelsService';
 
 export default class LevelsList {
   private blockId: string;
@@ -28,7 +29,7 @@ export default class LevelsList {
     if (h2 instanceof HTMLElement) {
       const levelIndex = levelsData.indexOf(level);
 
-      h2.textContent = `Level ${levelIndex + 1} of ${levelsData.length}`;
+      h2.textContent = `Treasure Hunt: Level ${levelIndex + 1} of ${levelsData.length}`;
       block4.appendChild(h2);
     } else {
       console.error("Element with ID 'levelTitle' not found");
@@ -41,7 +42,7 @@ export default class LevelsList {
     block4.appendChild(levelInfo);
     block4.appendChild(resetButton);
 
-resetButton.addEventListener('click', handleResetButtonClick);
+    resetButton.addEventListener('click', handleResetButtonClick);
 
     const rules = document.createElement('div');
 
@@ -75,15 +76,16 @@ resetButton.addEventListener('click', handleResetButtonClick);
       }
 
       levelElement.addEventListener('click', () => {
+        fromLocalStorage();
+
         const selectedLevel = levelsData[index];
 
         if (rules) {
           rules.remove();
         }
-        this.createRulesWindow(selectedLevel);
         updateBlock1(selectedLevel, index);
-        console.log(index);
         updateBlock3(selectedLevel, index);
+        updateBlock4(selectedLevel, index);
       });
 
       levelsContainer.appendChild(levelElement);
