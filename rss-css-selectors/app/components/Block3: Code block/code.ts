@@ -18,6 +18,9 @@ export default class Markup {
 
   public generate(level: Level): void {
     const htmlViewer = document.querySelector('.html-viewer');
+
+    if (htmlViewer) htmlViewer.innerHTML = '';
+
     const island = this.createNode('div');
 
     island.innerHTML = level.htmlCode;

@@ -21,7 +21,6 @@ export default function fromLocalStorage(): void {
       const parsedLevelsData: Level[] = JSON.parse(storedLevelsData);
 
       parsedLevelsData.forEach((level: Level, index: number): void => {
-
         const levelElement = document.querySelector(`.level:nth-child(${index + 1})`);
 
         console.log(level);

@@ -1,45 +1,29 @@
 import './app.module.css';
 import createLayout from './components/Block1: Task layout/layout';
 import { Layout } from './types/index';
-import Input from './components/Block2: Input window/input';
-import Markup from './components/Block3: Code block/code';
-import LevelsList from './components/Block4: Levels list/levelsList';
 import Level, { levels } from '../models/LevelModel';
 import fromLocalStorage from '../levelsService/levelsService';
-import { handleHelpButtonClick, printTextWithAnimation } from "./components/Help Button/help"
-import "./components/Help Button/help.css";
+import { handleHelpButtonClick } from './components/Help Button/help';
+import './components/Help Button/help.css';
+import {
+  level1,
+  createBlock1, createBlock3, createLevelsList, userInput, buttonEnter,
+} from './components/GameScreen/GameScreen';
+import Markup from './components/Block3: Code block/code';
 
 fromLocalStorage();
 
 const helpButton = document.getElementById('helpButton');
+
 if (helpButton) {
-    helpButton.classList.add("help-button");
+  helpButton.classList.add('help-button');
   helpButton.addEventListener('click', handleHelpButtonClick);
 }
 
-const level1 = levels[0];
-const block1: Layout = createLayout(level1.layout);
+export const block1: Layout = createBlock1();
+export const block3 = createBlock3();
 
-const appContainer: Layout = block1;
-export default appContainer;
-
-const block2 = document.getElementById('block2');
-
-export const userInput = new Input();
-
-userInput.input.setAttribute('placeholder', 'Type a CSS selector here');
-userInput.input.setAttribute('type', 'text');
-
-const cssView = document.createElement('div');
-
-cssView.classList.add('editor-window');
-block2?.appendChild(cssView);
-cssView.appendChild(userInput.input);
-
-const buttonEnter = document.createElement('div');
-
-buttonEnter.classList.add('button-enter');
-buttonEnter.textContent = 'Sail In';
+const levelsList = createLevelsList(level1);
 
 let currentLevelIndex: number;
 
@@ -55,32 +39,9 @@ export function getCurrentLevelIndex(): number {
   return currentLevelIndex;
 }
 
-const styles = document.createElement('div');
-
-styles.classList.add('styles');
-styles.innerHTML = '{ <br> /* Styles would go there */ <br> }';
-
-cssView.appendChild(buttonEnter);
-cssView.appendChild(styles);
-
-const block3 = document.getElementById('block3');
-const htmlViewer = document.createElement('div');
-
-htmlViewer.classList.add('html-viewer');
-
-block3?.appendChild(htmlViewer);
-
-const markup = new Markup();
-
-markup.generate(level1);
-
-export const levelsList = new LevelsList(
-  'block4',
-  'Select elements by their type',
-  'Type Selector. Selects all elements of type A. Type refers to the type of tag, so div, p and ul are all different element types.',
-);
-
-levelsList.createRulesWindow(level1);
+function updateCurrentLevelIndex(index: number): void {
+  localStorage.setItem('currentLevelIndex', index.toString());
+}
 
 export function updateBlock1(level: Level, index: number): void {
   const newBlock1: Layout = createLayout(level.layout);
@@ -93,9 +54,17 @@ export function updateBlock1(level: Level, index: number): void {
 }
 
 export function updateBlock3(level: Level, index: number): void {
-  htmlViewer.innerHTML = '';
+  const htmlViewer = document.querySelector('html-viewer');
+
+  if (htmlViewer) htmlViewer.innerHTML = '';
+
+  const markup = new Markup();
+
   markup.generate(level);
-  level.correctSelector = levels[index].correctSelector;
+
+  const updatedLevel: Level = { ...level };
+
+  updatedLevel.correctSelector = levels[index].correctSelector;
 }
 
 export function updateBlock4(level: Level, index: number): void {
@@ -105,7 +74,10 @@ export function updateBlock4(level: Level, index: number): void {
     rules.remove();
   }
   levelsList.createRulesWindow(level);
-  level.correctSelector = levels[index].correctSelector;
+
+  const updatedLevel: Level = { ...level };
+
+  updatedLevel.correctSelector = levels[index].correctSelector;
 }
 
 export function updateBlocks(level: Level, index: number): void {
@@ -121,24 +93,28 @@ victoryMessage.textContent = 'Congratulations, pirate! You have completed all le
 victoryMessage.style.display = 'none';
 victoryMessage.classList.add('victory');
 
-function updateCurrentLevelIndex(index: number): void {
-  localStorage.setItem('currentLevelIndex', index.toString());
-}
-
 export function updateStoredLevelData(): void {
   const storedData = localStorage.getItem('levelsData');
+
   if (storedData) {
     const parsedData: Level[] = JSON.parse(storedData);
 
     levels.forEach((level, index) => {
-      if (level.completed !== parsedData[index].completed) {
-        parsedData[index].completed = level.completed;
+      const storedLevel = parsedData[index];
+
+      if (level.completed !== storedLevel.completed) {
+        storedLevel.completed = level.completed;
+      }
+
+      if (level.hintUsed !== storedLevel.hintUsed) {
+        storedLevel.hintUsed = level.hintUsed;
       }
     });
 
     localStorage.setItem('levelsData', JSON.stringify(parsedData));
+  } else {
+    localStorage.setItem('levelsData', JSON.stringify(levels));
   }
-  else localStorage.setItem('levelsData', JSON.stringify(levels));
 }
 
 export function handleButtonClick(): void {
@@ -147,6 +123,8 @@ export function handleButtonClick(): void {
   getCurrentLevelIndex();
 
   const level = levels[currentLevelIndex];
+
+  console.log(selector, level.correctSelector);
 
   if (level.correctSelector === selector) {
     if (currentLevelIndex < levels.length - 1) {
@@ -180,7 +158,9 @@ export function handleButtonClick(): void {
   }
 }
 
-cssView.appendChild(victoryMessage);
+const cssView = document.querySelector('editor-window');
+
+if (cssView) cssView.appendChild(victoryMessage);
 
 function handleKeyPress(event: KeyboardEvent): void {
   if (event.key === 'Enter') {
@@ -188,5 +168,5 @@ function handleKeyPress(event: KeyboardEvent): void {
   }
 }
 
-buttonEnter.addEventListener('click', handleButtonClick);
+buttonEnter?.addEventListener('click', handleButtonClick);
 document.addEventListener('keypress', handleKeyPress);
