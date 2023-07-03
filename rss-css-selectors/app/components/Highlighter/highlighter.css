@@ -1,0 +1,23 @@
+
+.highlight {
+    cursor: pointer;
+    color: #449FAF;
+  }
+
+  @keyframes zoomEffect {
+    0% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.2); 
+    }
+    100% {
+      transform: scale(1); 
+    }
+  }
+  
+  .zoomed {
+    animation: zoomEffect 1s ease-in-out;
+  }
+  
+  

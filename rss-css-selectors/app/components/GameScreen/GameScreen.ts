@@ -11,6 +11,8 @@ export const level1 = levels[0];
 export function createBlock1(): Layout {
   const block1: Layout = createLayout(level1.layout);
 
+  console.log(level1.layout);
+
   return block1;
 }
 

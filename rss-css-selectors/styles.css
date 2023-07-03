@@ -246,13 +246,13 @@ footer nav ul li a:hover {
   }
 
   key.small {
-    width: 20% !important;
-    height:70px !important;
+    width: 20%;
+    height:70px;
   }
 
   telescope.small {
-    width: 20% !important;
-    height:70px !important;
+    width: 20%;
+    height:70px;
   }
 
   .victory {

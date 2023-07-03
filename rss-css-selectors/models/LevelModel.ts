@@ -27,7 +27,7 @@ export default class Level {
 
 export const levels: Level[] = [
   new Level(
-    `<div class="island"><chest class="chest"></chest></div>`,
+    '<div class="island"><chest class="chest"></chest></div>',
     '&lt;div class="island"&gt;<br>&nbsp;&nbsp;&lt;chest&gt;<br>&nbsp;&nbsp;&lt;/chest&gt;<br>&lt;/div&gt;',
     'Type Selector. Selects all elements of type A. Type refers to the type of tag, so div, p and ul are all different element types.',
     ['chest'],
@@ -82,7 +82,7 @@ export const levels: Level[] = [
   ),
   new Level(
     '<div class="island"><chest class="chest" id="open"><coins></coins></chest><map></map><key></key><treasure></treasure></div>',
-    '&lt;div class="island"&gt;<br>&nbsp;&nbsp;&lt;chest&gt;&lt;coins/&gt;&lt;/chest&gt;<br>&nbsp;&nbsp;&lt;map/&gt;<br>&nbsp;&nbsp;&lt;key/&gt;<br>&nbsp;&nbsp;&lt;treasure/&gt;<br>&lt;/div&gt;',
+    '&lt;div class="island"&gt;<br>&nbsp;&nbsp;&lt;chest&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;coins/&gt;<br>&nbsp;&nbsp;&lt;/chest&gt<br>&nbsp;&nbsp;&lt;map/&gt;<br>&nbsp;&nbsp;&lt;key/&gt;<br>&nbsp;&nbsp;&lt;treasure/&gt;<br>&lt;/div&gt;',
     'Comma Combinator.Thanks to Shatner technology, this selects all A and B elements. You can combine any selectors this way, and you can specify more than two.',
     ['chest coins, treasure'],
     'chest coins, treasure',
@@ -91,7 +91,7 @@ export const levels: Level[] = [
   ),
   new Level(
     '<div class="island"><treasure></treasure><chest class="chest"></chest><map></map><telescope></telescope><hat></hat></div>',
-    '&lt;div class="island"&gt;<br>&nbsp;&nbsp;&lt;treasure/&gt;<br>&nbsp;&nbsp;&lt;chest&gt;&lt;/chest&gt;<br>&nbsp;&nbsp;&lt;map/&gt;<br>&nbsp;&nbsp;&lt;telescope/&gt;<br>&nbsp;&nbsp;&lt;coins/&gt;<br>&lt;/div&gt;',
+    '&lt;div class="island"&gt;<br>&nbsp;&nbsp;&lt;treasure/&gt;<br>&nbsp;&nbsp;&lt;chest&gt;&lt;/chest&gt;<br>&nbsp;&nbsp;&lt;map/&gt;<br>&nbsp;&nbsp;&lt;telescope/&gt;<br>&nbsp;&nbsp;&lt;hat/&gt;<br>&lt;/div&gt;',
     'The Universal Selector. You can select all elements with the universal selector!',
     ['*'],
     '*',
