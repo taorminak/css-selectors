@@ -1,43 +1,56 @@
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
+import hljs from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
 
-import Level, { levels } from '../../../models/LevelModel';
-import 'highlight.js/styles/github.css';
+import Level, { levels } from "../../../models/LevelModel";
+import "highlight.js/styles/github.css";
 import "./highlighter.css";
 
-hljs.registerLanguage('javascript', javascript);
-console.log(hljs);
-console.log(javascript);
+hljs.registerLanguage("javascript", javascript);
 
-export default function highlightElement(targetElement: HTMLElement, level: Level, language: string): void {
+export default function highlightElement(
+  targetElement: HTMLElement,
+  level: Level,
+  language: string
+): void {
   if (targetElement) {
-    targetElement.classList.add('highlight');
+    targetElement.classList.add("highlight");
+    setTimeout(() => {
+        targetElement.classList.remove("zoomed");
+      }, 1000);
+
+    const codeString = level.htmlCode;
+    const elements = codeString.split(`<br>`);
 
     const targetString = targetElement.innerHTML;
-    const decodedTargetString = targetString.replace(/&lt;/g, '').replace(/&gt;/g, '').replace(/&nbsp;/g, '').replace(/\//g, '');
+    const index = elements.indexOf(targetString);
+    console.log(index)
 
-    console.log(decodedTargetString);
+    const comparedLayout = level.layout;
 
-    const compareLayout = level.layout;
-    const index = compareLayout.indexOf(decodedTargetString);
+    const layoutElements = comparedLayout
+      .split(/<|>/)
+      .filter((element) => element.trim() !== "");
 
-    console.log(index);
+    const highlightElement =  layoutElements[index];
 
-    if (index !== -1) {
-      const block1 = document.getElementById('block1');
-      const elementToHighlight = block1?.getElementsByTagName(decodedTargetString);
-      const wordCount = decodedTargetString.split(' ').length;
-      if (wordCount===1 && elementToHighlight && elementToHighlight.length > 0) {
-        const element = elementToHighlight[0] as HTMLElement;
-console.log(element)
-        element.classList.add('zoomed');
-        setTimeout(() => {
-            element.classList.remove('zoomed');
+    const island = document.querySelector(".island");
+    const elementsToHighlight = island?.querySelectorAll("*");
+console.log(elementsToHighlight)
+    if (elementsToHighlight) {
+      for (let i = 0; i < elementsToHighlight.length; i++) {
+        if (index > 0 && index <= elementsToHighlight.length) {
+            const element = elementsToHighlight[index-1] as HTMLElement;
+          element.classList.add("zoomed");
+          setTimeout(() => {
+            element.classList.remove("zoomed");
           }, 1000);
-        //hljs.highlightElement(element);
+          // hljs.highlightElement(element);
+        }
       }
-    } else {
-      console.log('Element not found');
+
+        }
+        
     }
+
   }
-}
+

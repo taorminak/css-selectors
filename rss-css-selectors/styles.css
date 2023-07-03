@@ -151,7 +151,7 @@ h1:hover {
   background-color: #b8e8fc;
   margin: 0px;
   width: 100%;
-  min-height: 80%;
+  min-height: 70%;
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 10px;
@@ -251,6 +251,11 @@ footer nav ul li a:hover {
   }
 
   telescope.small {
+    width: 20%;
+    height:70px;
+  }
+
+  map.small {
     width: 20%;
     height:70px;
   }

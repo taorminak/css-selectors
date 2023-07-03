@@ -1,8 +1,8 @@
 import './code.css';
-import Level from '../../../models/LevelModel';
-import highlightElement from '../Highlighter/highlighter';
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
+import Level from '../../../models/LevelModel';
+import highlightElement from '../Highlighter/highlighter';
 
 hljs.registerLanguage('javascript', javascript);
 
@@ -36,6 +36,11 @@ export default class Markup {
       div.innerHTML = line;
       div.addEventListener('mouseover', () => {
         highlightElement(div, level, 'javascript');
+
+        const compareLayout = level.layout;
+        const index = compareLayout.indexOf(line);
+
+        console.log(level.layout, line);
       });
       div.addEventListener('mouseout', () => {
         div.classList.remove('highlight');
