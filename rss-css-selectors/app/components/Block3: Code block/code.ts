@@ -1,13 +1,17 @@
-import './code.css';
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
-import Level from '../../../models/LevelModel';
-import highlightElement from '../Highlighter/highlighter';
+import "./code.css";
+import hljs from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
+import Level from "../../../models/LevelModel";
+import highlightElement from "../Highlighter/highlighter";
 
-hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage("javascript", javascript);
 
 export default class Markup {
-  private createNode(tag: string, className?: string, id?: string): HTMLElement {
+  private createNode(
+    tag: string,
+    className?: string,
+    id?: string
+  ): HTMLElement {
     const node = document.createElement(tag);
 
     if (className) {
@@ -22,28 +26,28 @@ export default class Markup {
   }
 
   public generate(level: Level): void {
-    const htmlViewer = document.querySelector('.html-viewer');
+    const htmlViewer = document.querySelector(".html-viewer");
 
-    if (htmlViewer) htmlViewer.innerHTML = '';
+    if (htmlViewer) htmlViewer.innerHTML = "";
 
-    const island = this.createNode('div');
+    const island = this.createNode("div");
 
-    const lines = level.htmlCode.replace(/&lt;br&gt;/g, '<br>').split('<br>');
+    const lines = level.htmlCode.replace(/&lt;br&gt;/g, "<br>").split("<br>");
 
     lines.forEach((line) => {
-      const div = this.createNode('div');
+      const div = this.createNode("div");
 
       div.innerHTML = line;
-      div.addEventListener('mouseover', () => {
-        highlightElement(div, level, 'javascript');
+      div.addEventListener("mouseover", () => {
+        highlightElement(div, level, "javascript");
 
         const compareLayout = level.layout;
         const index = compareLayout.indexOf(line);
 
         console.log(level.layout, line);
       });
-      div.addEventListener('mouseout', () => {
-        div.classList.remove('highlight');
+      div.addEventListener("mouseout", () => {
+        div.classList.remove("highlight");
       });
       island.appendChild(div);
     });

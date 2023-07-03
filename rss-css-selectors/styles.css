@@ -1,21 +1,21 @@
 body {
   background-color: #395461;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
 .flag {
   margin-left: 10px;
-  width: 50px;
+  width: 40px;
   transform: rotate(30deg);
   transition: 0.5s;
   position: relative;
-  top: 13px;
+  top: 10px;
 }
 
 .flag-rotate {
   margin-right: 13px;
-  width: 50px;
+  width: 40px;
   transform: rotate(-30deg);
   transition: 0.5s;
   position: relative;
@@ -35,7 +35,7 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   min-width: 90%;
-  min-height: 75vh;
+  min-height: 65vh;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 5px;
@@ -47,13 +47,13 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-width: 60vw;
-  min-height: 40vh;
+  min-width: 65vw;
+  min-height: 50vh;
 }
 
 .col-2 {
-  min-width: 20vw;
-  min-height: 40vh;
+  min-width: 25vw;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
 }
@@ -78,7 +78,8 @@ body {
   min-height: 30vh;
 }
 
-.block-2, .block-3 {
+.block-2,
+.block-3 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,7 +96,7 @@ body {
   justify-content: center;
   flex-basis: 100%;
   width: 100%;
-  height: 190px;
+  height: 180px;
   background-image: url("./assets/images/beach.jpg");
   background-position: bottom;
   background-size: cover;
@@ -133,7 +134,7 @@ h1 {
   color: #b8e8fc;
   text-align: center;
   font-family: "East Sea Dokdo", sans-serif;
-  font-size: 2.9em;
+  font-size: 2.5em;
   transition: color 0.5s ease-in-out;
 }
 
@@ -141,7 +142,8 @@ h1:hover {
   color: #b1f4fc;
 }
 
-.editor-window, .html-viewer {
+.editor-window,
+.html-viewer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -151,7 +153,7 @@ h1:hover {
   background-color: #b8e8fc;
   margin: 0px;
   width: 100%;
-  min-height: 70%;
+  min-height: 30vh;
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 10px;
@@ -178,7 +180,7 @@ h1:hover {
 }
 
 .button-enter:hover {
-  background-color: #F4D499;
+  background-color: #f4d499;
   color: #010307;
 }
 
@@ -186,7 +188,8 @@ h1:hover {
   background-color: #86414a;
 }
 
-.choose-level, .styles {
+.choose-level,
+.styles {
   margin: 0;
   padding-left: 20px;
   font-family: "East Sea Dokdo", sans-serif;
@@ -194,14 +197,12 @@ h1:hover {
   color: #808080;
   background-color: #b8e8fc;
   width: 75%;
- 
 }
 
-
 li img {
-  width: 70px;
+  width: 60px;
   height: auto;
-  background-color:  #395461;
+  background-color: #395461;
 }
 
 footer nav ul {
@@ -214,6 +215,7 @@ footer nav ul {
   justify-content: flex-end;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 5px;
 }
 
 footer nav ul li {
@@ -237,71 +239,122 @@ footer nav ul li a:hover {
   width: 70%;
   height: 170px;
   justify-content: space-around;
-  align-items:center;
+  align-items: center;
   margin: auto;
+}
+
+#open {
+  background-image: url("./assets/images/treasure-4.png");
+}
+
+key.small {
+  width: 20%;
+  height: 70px;
+  rotate: 25deg;
+}
+
+telescope.small {
+  width: 20%;
+  height: 70px;
+}
+
+map.small {
+  width: 20%;
+  height: 70px;
+}
+
+.victory {
+  font-size: 36px;
+  color: #86414a;
+  margin: 20px;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.incorrect-animation {
+  animation: shake 0.5s;
+}
+
+@keyframes flyAway {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+.correct-animation {
+  animation: flyAway 1s forwards;
+}
+
+@media (max-width: 767px) {
+  body {
+    overflow: scroll;
   }
 
-  #open {
-    background-image: url("./assets/images/treasure-4.png");
+  .container {
+    flex-direction: column;
   }
 
-  key.small {
-    width: 20%;
-    height:70px;
-    rotate: 25deg;
+  .col-1 {
+    min-width: 100%;
   }
 
-  telescope.small {
-    width: 20%;
-    height:70px;
+  .col-2 {
+    min-width: 100%;
+    margin-top: 20px;
   }
 
-  map.small {
-    width: 20%;
-    height:70px;
+  .block-2,
+  .block-3 {
+    flex-basis: 100%;
   }
 
-  .victory {
-    font-size: 36px;
-    color: #86414a;
-    margin: 20px;
+  .html-viewer,
+  .editor-window {
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    overflow: scroll;
   }
 
-  @keyframes shake {
-    0% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(-10px);
-    }
-    50% {
-      transform: translateX(10px);
-    }
-    75% {
-      transform: translateX(-10px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  
-  .incorrect-animation {
-    animation: shake 0.5s;
-  }
-  
-  @keyframes flyAway {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-100vh);
-    }
-  }
-  
-  .correct-animation {
-    animation: flyAway 1s forwards;
+  .container {
+    flex-wrap: wrap;
   }
 
+  .col-1 {
+    min-width: 100%;
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
 
+  .col-2 {
+    min-width: 100%;
+    flex-basis: 100%;
+  }
 
-
+  .block-2,
+  .block-3 {
+    flex-basis: 100%;
+  }
+}

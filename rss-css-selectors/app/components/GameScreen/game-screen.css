@@ -1,4 +1,3 @@
-
 chest {
   display: flex;
   justify-content: center;
@@ -55,7 +54,7 @@ coins {
   height: 80px;
   background-image: url("../../../assets/images/coin.png");
   background-position: center;
-  background-size:contain;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 

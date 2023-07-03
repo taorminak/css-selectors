@@ -1,23 +1,22 @@
 .help-button {
-    display: block;
-    padding: 5px 12px;
-    background-color:#b8e8fc;
-    color: #010307;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    font-family: "East Sea Dokdo", sans-serif, cursive;
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 3px;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  padding: 3px 8px;
+  background-color: #b8e8fc;
+  color: #010307;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: "East Sea Dokdo", sans-serif, cursive;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 3px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .help-button:hover {
-    background-color: #F4D499;
-    color: #010307;
+  background-color: #f4d499;
+  color: #010307;
 }
-

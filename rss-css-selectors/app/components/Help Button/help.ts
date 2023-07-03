@@ -1,9 +1,12 @@
-import './help.css';
-import { levels } from '../../../models/LevelModel';
-import { getCurrentLevelIndex, updateStoredLevelData } from '../../app.module';
-import { userInput } from '../GameScreen/GameScreen';
+import "./help.css";
+import { levels } from "../../../models/LevelModel";
+import { getCurrentLevelIndex, updateStoredLevelData } from "../../app.module";
+import { userInput } from "../GameScreen/GameScreen";
 
-export function printTextWithAnimation(text: string, element: HTMLInputElement): void {
+export function printTextWithAnimation(
+  text: string,
+  element: HTMLInputElement
+): void {
   let currentIndex = 0;
   const intervalId = setInterval(() => {
     if (currentIndex >= text.length) {
