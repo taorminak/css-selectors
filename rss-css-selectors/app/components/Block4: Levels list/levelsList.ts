@@ -1,8 +1,8 @@
-import "./levels.css";
-import Level, { levels as levelsData } from "../../../models/LevelModel";
-import { updateBlock1, updateBlock3, updateBlock4 } from "../../app.module";
-import { resetButton, handleResetButtonClick } from "../resetButton/reset";
-import fromLocalStorage from "../../../levelsService/levelsService";
+import './levels.css';
+import Level, { levels as levelsData } from '../../../models/LevelModel';
+import { updateBlock1, updateBlock3, updateBlock4 } from '../../app.module';
+import { resetButton, handleResetButtonClick } from '../resetButton/reset';
+import fromLocalStorage from '../../../levelsService/levelsService';
 
 export default class LevelsList {
   private blockId: string;
@@ -24,7 +24,7 @@ export default class LevelsList {
       return;
     }
 
-    const h2 = document.querySelector("#levelTitle");
+    const h2 = document.querySelector('#levelTitle');
 
     if (h2 instanceof HTMLElement) {
       const levelIndex = levelsData.indexOf(level);
@@ -37,47 +37,47 @@ export default class LevelsList {
       console.error("Element with ID 'levelTitle' not found");
     }
 
-    const levelInfo = document.createElement("div");
+    const levelInfo = document.createElement('div');
 
-    levelInfo.classList.add("levels");
+    levelInfo.classList.add('levels');
 
     block4.appendChild(levelInfo);
     block4.appendChild(resetButton);
 
-    resetButton.addEventListener("click", handleResetButtonClick);
+    resetButton.addEventListener('click', handleResetButtonClick);
 
-    const rules = document.createElement("div");
+    const rules = document.createElement('div');
 
-    rules.classList.add("rules");
+    rules.classList.add('rules');
     rules.textContent = level.levelsDescription;
 
     levelInfo.appendChild(rules);
 
-    const levelsContainer = document.createElement("div");
+    const levelsContainer = document.createElement('div');
 
-    levelsContainer.classList.add("levels-container");
+    levelsContainer.classList.add('levels-container');
 
     if (h2) h2.appendChild(levelsContainer);
 
     levelsData.forEach((levelData, index) => {
-      const levelElement = document.createElement("div");
+      const levelElement = document.createElement('div');
 
-      levelElement.classList.add("level");
+      levelElement.classList.add('level');
       levelElement.textContent = `${index + 1}`;
 
       if (levelData.completed) {
-        levelElement.classList.add("completed");
+        levelElement.classList.add('completed');
       }
 
       if (levelData.hintUsed) {
-        levelElement.classList.add("hint-used");
+        levelElement.classList.add('hint-used');
       }
 
       if (levelData === level) {
-        levelElement.classList.add("current-level");
+        levelElement.classList.add('current-level');
       }
 
-      levelElement.addEventListener("click", () => {
+      levelElement.addEventListener('click', () => {
         fromLocalStorage();
 
         const selectedLevel = levelsData[index];
