@@ -63,12 +63,12 @@ key {
   display: block;
   margin: 0;
   width: 30%;
-  height: 100px;
+  height: 90px;
   background-image: url("../../../assets/images/key.png");
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
-  rotate: 25deg;
+  rotate: 125deg;
 }
 
 hat {

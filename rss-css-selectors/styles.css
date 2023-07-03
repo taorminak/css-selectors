@@ -248,6 +248,7 @@ footer nav ul li a:hover {
   key.small {
     width: 20%;
     height:70px;
+    rotate: 25deg;
   }
 
   telescope.small {

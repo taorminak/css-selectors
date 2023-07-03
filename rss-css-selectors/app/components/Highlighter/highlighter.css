@@ -19,5 +19,21 @@
   .zoomed {
     animation: zoomEffect 1s ease-in-out;
   }
+
+  .code-display {
+    min-width: 100px;
+    max-height: 300px;
+    text-align: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    background-color: #395461;
+    color: #b8e8fc;
+    display: inline-block;
+    white-space: nowrap;
+    z-index: 999;
+    position: absolute;
+    left: 30%;
+    top: 20%;
+  }
   
   
